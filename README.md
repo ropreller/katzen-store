@@ -1,5 +1,7 @@
 # katzen-store
-
+```
+Proyecto para Coderhouse. Tienda de alimentos, implementos y otros artículos para gatos.
+```
 ## Project setup
 ```
 npm install
