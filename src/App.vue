@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Productos :titles="tableRender.titles" :products="tableRender.products" />
+    <Header />
+    <div class="container">
+        <Productos :titles="tableRender.titles" :products="tableRender.products" />
+    </div>
   </div>
 </template>
 
 <script>
 import Productos from './components/Productos.vue'
+import Header from './components/layout/Header.vue'
 
 export default {
   name: 'App',
   components: {
     Productos
+    ,Header
   },
   data (){
     return {
@@ -23,7 +27,7 @@ export default {
                     name: 'Churu clásico unidad',
                     price: 1500,
                     desc: 'Clásico churu sabor atún.',
-                    img: './assets/img/churu.jpg',
+                    img: 'churu.jpg',
                     stock: 2
 
                 },
@@ -32,7 +36,7 @@ export default {
                     name: 'Bravery 7kg.',
                     price: 45000,
                     desc: 'Alimento Bravery sabor salmón.',
-                    img: './assets/img/bravery.jpg',
+                    img: 'bravery.jpg',
                     stock: 0
                 },
                 {
@@ -40,7 +44,7 @@ export default {
                     name: 'Matisse 7kg.',
                     price: 43200,
                     desc: 'Alimento Mattise sabor salmón.',
-                    img: './assets/img/mattise.jpg',
+                    img: 'mattise.jpg',
                     stock: 3
                 },
                 {
@@ -48,7 +52,7 @@ export default {
                     name: 'Leonardo lata.',
                     price: 3450,
                     desc: 'Alimento humedo marca exclusiva.',
-                    img: './assets/img/leonardo.jpg',
+                    img: 'leonardo.jpg',
                     stock: 7
                 },
                 {
@@ -56,7 +60,7 @@ export default {
                     name: 'Leonardo kitten.',
                     price: 46200,
                     desc: 'Leonardo kitten sabor inigualable.',
-                    img: './assets/img/Leonardo_2.jpg',
+                    img: 'leonardo_2.jpg',
                     stock: 0
                 },
                 {
@@ -64,7 +68,7 @@ export default {
                     name: 'Proplan urinary.',
                     price: 33600,
                     desc: 'Para el cuidado de sus riñones.',
-                    img: './assets/img/proplan_urinary.jpg',
+                    img: 'proplan_urinary.jpg',
                     stock: 1
                 }
             ]
@@ -81,6 +85,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
