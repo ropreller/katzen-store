@@ -2,78 +2,112 @@
   <div id="app">
     <Header />
     <div class="container">
-        <Productos :titles="tableRender.titles" :products="tableRender.products" />
+        <Product
+            v-for="(item, i) in products"
+            :key="i"
+            :id="item.id"
+            :title="item.title"
+            :desc="item.desc"
+            :price="item.price"
+            :img="item.img"
+            :highlight="item.highlight"
+            :stock="item.stock"
+            @add-to-cart="addToCart"
+        />
+
     </div>
   </div>
 </template>
 
 <script>
-import Productos from './components/Productos.vue'
+import Product from './components/Product/Product.vue'
 import Header from './components/layout/Header.vue'
+import Cart from './components/Product/Cart.vue'
 
 export default {
   name: 'App',
   components: {
-    Productos
+    Product
     ,Header
+    ,Cart
   },
   data (){
     return {
-            tableRender : {
-            titles: ['ID','Precio','Foto','Nombre','Descripcion','Stock','Añadir'],
-            products: [
+           products: [
                 {
                     id: 1,
-                    name: 'Churu clásico unidad',
+                    title: 'Churu clásico unidad',
                     price: 1500,
                     desc: 'Clásico churu sabor atún.',
                     img: 'churu.jpg',
+                    highlight: false,
                     stock: 2
 
                 },
                 {
                     id: 2,
-                    name: 'Bravery 7kg.',
-                    price: 45000,
-                    desc: 'Alimento Bravery sabor salmón.',
-                    img: 'bravery.jpg',
+                    title: 'Leonardo atún',
+                    price: 3500,
+                    desc: 'Exclusivo sabor atún.',
+                    img: 'leonardo.jpg',
+                    highlight: false,
                     stock: 0
+
                 },
                 {
                     id: 3,
-                    name: 'Matisse 7kg.',
-                    price: 43200,
-                    desc: 'Alimento Mattise sabor salmón.',
-                    img: 'mattise.jpg',
-                    stock: 3
+                    title: 'Leonardo salmón',
+                    price: 1500,
+                    desc: 'Sabor salmón ahumado.',
+                    img: 'leonardo_2.jpg',
+                    highlight: false,
+                    stock: 2
+
                 },
                 {
                     id: 4,
-                    name: 'Leonardo lata.',
-                    price: 3450,
-                    desc: 'Alimento humedo marca exclusiva.',
-                    img: 'leonardo.jpg',
-                    stock: 7
+                    title: 'Mattise exclusive',
+                    price: 4500,
+                    desc: 'Alto estandar de calidad.',
+                    img: 'churu.jpg',
+                    highlight: false,
+                    stock: 5
+
                 },
                 {
                     id: 5,
-                    name: 'Leonardo kitten.',
-                    price: 46200,
-                    desc: 'Leonardo kitten sabor inigualable.',
-                    img: 'leonardo_2.jpg',
-                    stock: 0
+                    title: 'Proplan Urinary',
+                    price: 1500,
+                    desc: 'Para el cuidado renal del michi',
+                    img: 'proplan_urinary.jpg',
+                    highlight: false,
+                    stock: 2
+
                 },
                 {
                     id: 6,
-                    name: 'Proplan urinary.',
-                    price: 33600,
-                    desc: 'Para el cuidado de sus riñones.',
-                    img: 'proplan_urinary.jpg',
-                    stock: 1
-                }
+                    title: 'Bravery',
+                    price: 4800,
+                    desc: 'La mejor de todas',
+                    img: 'bravery.jpg',
+                    highlight: false,
+                    stock: 0
+                },
             ]
-        },
     }
+  },
+  mounted() {
+  },
+  methods: {
+      addToCart(id){
+          console.log('id prod', id)
+          let result = this.products.find((prod) =>{
+              return prod.id == id
+          })
+          if (result) {
+              this.$refs.myCart.addProduct(result)
+          }
+      }
   }
 }
 </script>
