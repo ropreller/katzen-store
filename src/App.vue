@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    <Cart ref="myCart"/>
     <div class="container">
         <Product
             v-for="(item, i) in products"
