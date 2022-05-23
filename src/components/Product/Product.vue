@@ -1,22 +1,31 @@
 <template>
-  <div>
-    <div class="card" style="width: 18rem">
-      <img class="card-img-top" :src="getImgUrl(img)" alt="Card image cap" />
-      <div class="card-body">
-        <h5>{{ title }}</h5>
-        <h6>${{ price }}</h6>
-        <p class="card-text">{{ desc }}</p>
-        <button v-if="stock>0" type="button" class="btn btn-success" @click="addToCart">Añadir</button>
-        <button v-else type="button" class="btn btn-danger">Agotado</button>
-      </div>
-    </div>
-  </div>
+    <b-col cols="3">
+      <b-card-group deck>
+        <b-card :title="title" :img-src="getImgUrl(img)" img-alt="Image" img-top>
+          <b-card-text>
+            {{ desc }}
+            ${{ price }}
+          </b-card-text>
+          <button
+            v-if="stock > 0"
+            type="button"
+            class="btn btn-success"
+            @click="addToCart"
+          >
+            Añadir
+          </button>
+          <button v-else type="button" class="btn btn-danger">Agotado</button>
+          <template #footer>
+            <small class="text-muted">test</small>
+          </template>
+        </b-card>
+      </b-card-group>
+    </b-col>
 </template>
 
 <script>
 export default {
-  mounted (){
-  },
+  mounted() {},
   props: {
     id: {
       type: Number,
@@ -51,9 +60,9 @@ export default {
     getImgUrl(imgUrl) {
       return require(`@/assets/img/${imgUrl}`);
     },
-    addToCart(){
-        this.$emit('add-to-cart', this.id)
-    }
+    addToCart() {
+      this.$emit("add-to-cart", this.id);
+    },
   },
 };
 </script>
