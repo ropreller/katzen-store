@@ -17,6 +17,7 @@
           @add-to-cart="addToCart"
         />
       </b-row>
+      <ProductsListContent :products="products" />
     </b-container>
   </div>
 </template>
@@ -30,6 +31,7 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import Product from "./components/Product/Product.vue";
 import Header from "./components/layout/Header.vue";
 import Cart from "./components/Cart/Cart.vue";
+import ProductsListContent from "./components/Admin/ProductsListContent.vue"
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue);
@@ -42,6 +44,7 @@ export default {
     Product,
     Header,
     Cart,
+    ProductsListContent
   },
   data() {
     return {
@@ -63,7 +66,7 @@ export default {
           img: "leonardo.jpg",
           highlight: false,
           stock: 0,
-        },
+         },
         {
           id: 3,
           title: "Leonardo salmón",
@@ -73,33 +76,33 @@ export default {
           highlight: false,
           stock: 2,
         },
-        {
-          id: 4,
-          title: "Mattise exclusive",
-          price: 4500,
-          desc: "Alto estandar de calidad.",
-          img: "mattise.jpg",
-          highlight: false,
-          stock: 5,
-        },
-        {
-          id: 5,
-          title: "Proplan Urinary",
-          price: 1500,
-          desc: "Para el cuidado renal del michi",
-          img: "proplan_urinary.jpg",
-          highlight: false,
-          stock: 2,
-        },
-        {
-          id: 6,
-          title: "Bravery",
-          price: 4800,
-          desc: "La mejor de todas",
-          img: "bravery.jpg",
-          highlight: false,
-          stock: 0,
-        },
+        // {
+        //   id: 4,
+        //   title: "Mattise exclusive",
+        //   price: 4500,
+        //   desc: "Alto estandar de calidad.",
+        //   img: "mattise.jpg",
+        //   highlight: false,
+        //   stock: 5,
+        // },
+        // {
+        //   id: 5,
+        //   title: "Proplan Urinary",
+        //   price: 1500,
+        //   desc: "Para el cuidado renal del michi",
+        //   img: "proplan_urinary.jpg",
+        //   highlight: false,
+        //   stock: 2,
+        // },
+        // {
+        //   id: 6,
+        //   title: "Bravery",
+        //   price: 4800,
+        //   desc: "La mejor de todas",
+        //   img: "bravery.jpg",
+        //   highlight: false,
+        //   stock: 0,
+        // },
       ],
     };
   },

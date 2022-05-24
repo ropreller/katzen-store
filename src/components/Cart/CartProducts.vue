@@ -14,8 +14,7 @@ export default {
   },
   data() {
     return {
-      items:
-          this.products
+      items: this.products
 
     };
   },
